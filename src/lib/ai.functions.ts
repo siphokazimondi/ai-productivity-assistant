@@ -47,7 +47,7 @@ export const generateWithAssistant = createServerFn({ method: "POST" })
 
     const result = streamText({
       model: gateway(DEFAULT_MODEL),
-      system: SYSTEM_PROMPTS[data.tool],
+      system: SYSTEM_PROMPTS[data.tool] ?? "You are a helpful workplace assistant.",
       prompt: buildPrompt(data.tool, data.fields),
     });
 
